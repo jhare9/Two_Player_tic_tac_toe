@@ -150,6 +150,13 @@ public class Game extends JPanel implements Runnable,MouseListener,KeyListener {
               
                 update();
                 repaint();
+                
+                // sleep for .2 seconds then update and redraw lower the cpu usage.
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+                }
               
             }
             
@@ -180,7 +187,6 @@ public class Game extends JPanel implements Runnable,MouseListener,KeyListener {
                 player_turn = 1;
                 break;
             case 1: 
-                System.out.println("in here");
                 board[mouseX][mouseY] = player_two;
                 player_turn = 0;
                 break;
